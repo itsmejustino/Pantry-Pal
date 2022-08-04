@@ -32,3 +32,5 @@ Contact.init(
   }
 
 )
+
+module.exports = Contact;
