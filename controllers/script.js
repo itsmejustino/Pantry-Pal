@@ -6,11 +6,11 @@ const fetchedData = async () => {
     const url =
       "https://edamam-recipe-search.p.rapidapi.com/search?q=chicken&to=2";
 
-    const options = {
-      method: "GET",
-      headers: {
-        "X-RapidAPI-Key": "eca86d4e2fmsh158280de98a7ef7p14ea91jsn088c0f0e454d",
-        "X-RapidAPI-Host": "edamam-recipe-search.p.rapidapi.com",
+      const options = {
+        method: 'GET',
+        headers: {
+          'X-RapidAPI-Key': process.env.DB_API_KEY,
+          'X-RapidAPI-Host': process.env.DB_HOST
       },
     };
 
@@ -29,7 +29,7 @@ const fetchedData = async () => {
   }
 };
 
-const theData = fetchedData();
-console.log(theData);
+// const theData = fetchedData();
+// console.log(theData);
 
 module.export = fetchedData;
