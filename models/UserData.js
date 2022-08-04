@@ -1,11 +1,11 @@
-// model for the ingredients
+// model for users
 
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class Ingredient extends Model {}
+class User extends Model {}
 
-Ingredient.init(
+User.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -13,9 +13,21 @@ Ingredient.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    ingredient_name: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+      validate: {
+        isEmail: true,
+      },
     },
   },
   {
@@ -23,8 +35,8 @@ Ingredient.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "ingredient",
+    modelName: "user",
   }
 );
 
-module.exports = Ingredient;
+module.exports = User;
