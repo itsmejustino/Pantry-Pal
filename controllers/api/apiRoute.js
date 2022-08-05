@@ -28,7 +28,7 @@ const searchByIngredient = async (userSearch) => {
     
     if(userSearch){
       console.log(recipe);
-      return recipe;
+      recipe.send();
     }
 
     // res.send(results, cautionResults)
