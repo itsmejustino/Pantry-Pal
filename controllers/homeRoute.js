@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
 });
 
 // Use withAuth middleware to prevent access to route
-router.get('/', withAuth, async (req, res) => {
+router.get('/apiRoute', withAuth, async (req, res) => {
   
 });
 
