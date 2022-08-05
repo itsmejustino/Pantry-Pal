@@ -6,11 +6,10 @@ const url = "https://edamam-recipe-search.p.rapidapi.com/search?q=chicken&to=2";
 const options = {
   method: "GET",
   headers: {
-    "X-RapidAPI-Key": process.env.DB_API_KEY,
+    "X-RapidAPI-Key": process.env.DB_KEY,
     "X-RapidAPI-Host": process.env.DB_HOST,
   },
 };
-console.log(options);
 
 const fetchedData = async () => {
   try {
