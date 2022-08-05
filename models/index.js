@@ -2,7 +2,7 @@ const User = require("./UserData");
 const Ingredient = require("./Ingredient");
 const Recipe = require("./Recipe");
 
-Recipe.belongsToMany(Ingredient, {
+Recipe.belongsTo(Ingredient, {
   through: {
     model: Recipe,
     unique: false,
@@ -10,7 +10,7 @@ Recipe.belongsToMany(Ingredient, {
   as: "planned_recipes",
 });
 
-User.hasMany(Recipe, {
+User.belongsToMany(Recipe, {
   through: {
     Model: Recipe,
     unique: false,
