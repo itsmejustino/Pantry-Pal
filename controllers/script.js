@@ -17,18 +17,26 @@ const fetchedData = async () => {
     const response = await fetch(url, options);
 
     const data = await response.json();
-
-    const results = await data.hits;
-    const cautionResults = await data.hits[1].recipe.cautions;
+    console.log(data.hits[0].recipe.ingredients);
+    //ingredients gets us back instructions, food category,foodId,image
+    const recipe_name = data.hits[0].recipe.label;
+    const is_vegetarian = await data.hits[0].recipe.healthLabels.includes("Vegetarian");
+    const is_vegan = await data.hits[0].recipe.healthLabels.includes("Vegan");
+    const is_gluten_free = await data.hits[0].recipe.healthLabels.includes("Gluten-Free");
+    const contains_dairy = !(await data.hits[0].recipe.healthLabels.includes("Dairy-Free"));
+    const is_low_carb = await data.hits[0].recipe.dietLabels.includes("Low-Carb");
     //returns recipe results and the caution for the 2nd recipe
-    console.log(results);
-    console.log(cautionResults);
+  
+    console.log(recipe_name, is_vegetarian, is_vegan, is_gluten_free, contains_dairy, is_low_carb);
     // return results, cautionResults;
   } catch (err) {
     (err) => console.error("error:" + err);
   }
 };
 
-fetchedData();
+  console.log('start');
+  fetchedData();
+
+
 
 module.export = fetchedData;
