@@ -5,7 +5,7 @@ require("dotenv").config();
 const options = {
   method: "GET",
   headers: {
-    "X-RapidAPI-Key": process.env.DB_API_KEY,
+    "X-RapidAPI-Key": process.env.DB_KEY,
     "X-RapidAPI-Host": process.env.DB_HOST,
   },
 };
@@ -14,7 +14,7 @@ const options = {
 router.get("/recipes/:userSearch", async (req, res) => {
   // find all recipe
   try {
-    const search =  req.params.userSearch
+    const search = req.params.userSearch;
     const url = `https://edamam-recipe-search.p.rapidapi.com/search?q=${search}&to=2`;
     const fetch_response = await fetch(url, options);
     const json = await fetch_response.json();
@@ -24,8 +24,7 @@ router.get("/recipes/:userSearch", async (req, res) => {
   }
 });
 
-module.exports =  router;
-
+module.exports = router;
 
 // const searchByIngredient = async (userSearch) => {
 //   try {
