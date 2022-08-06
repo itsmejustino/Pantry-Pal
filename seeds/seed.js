@@ -7,26 +7,25 @@ const sequelize = require("../config/connection");
 // const fs = require('fs');
 const { Recipe } = require("../models");
 const searchByIngredient = require("../controllers/api/apiRoute");
+const seedData = require("./RecipeData.json");
 
-let recipeList = [];
-
-const recipeData = searchByIngredient(recipeList.push(Recipe));
+console.log(seedData);
 
 const seedDatabase = async () => {
-  await searchByIngredient("apple");
+  // await searchByIngredient('apple')
   await sequelize.sync({ force: true });
 
-  const recipe = await Recipe.bulkCreate(recipeData, {
+  const recipe = await Recipe.bulkCreate(seedData, {
     individualHooks: true,
     returning: true,
   });
 
-  for (const newRecipe of recipeData) {
-    await Recipe.create({
-      ...newRecipe,
-      user_id: recipe[Math.floor(Math.random() * users.length)].id,
-    });
-  }
+  // for (const newRecipe of seedData) {
+  //   await Recipe.create({
+  //     ...newRecipe,
+  //     user_id: recipe[Math.floor(Math.random() * users.length)].id,
+  //   });
+  // }
 
   process.exit(0);
 };
