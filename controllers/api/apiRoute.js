@@ -1,7 +1,5 @@
 const fetch = require("node-fetch");
 require("dotenv").config();
-// const userSearch =
-const url = "https://edamam-recipe-search.p.rapidapi.com/search?q=chicken&to=2";
 
 const options = {
   method: "GET",
@@ -12,13 +10,14 @@ const options = {
 };
 console.log(options);
 
-const fetchedData = async () => {
+const searchByIngredient = async (userSearch) => {
   try {
+    const url = `https://edamam-recipe-search.p.rapidapi.com/search?q=${userSearch}&to=2`;
     const response = await fetch(url, options);
 
     const data = await response.json();
-    console.log(data.hits[0].recipe.ingredients);
-    //ingredients gets us back instructions, food category,foodId,image
+
+    const recipe = data.hits[0].recipe;
     const recipe_name = data.hits[0].recipe.label;
     const is_vegetarian = await data.hits[0].recipe.healthLabels.includes("Vegetarian");
     const is_vegan = await data.hits[0].recipe.healthLabels.includes("Vegan");
@@ -28,15 +27,29 @@ const fetchedData = async () => {
     //returns recipe results and the caution for the 2nd recipe
   
     console.log(recipe_name, is_vegetarian, is_vegan, is_gluten_free, contains_dairy, is_low_carb);
+  
+    
+    if(userSearch){
+      console.log(recipe);
+      recipe.send();
+    }
+
+
+
+
+
+    // res.send(results, cautionResults)
     // return results, cautionResults;
   } catch (err) {
     (err) => console.error("error:" + err);
   }
 };
 
-  console.log('start');
-  fetchedData();
+searchByIngredient('Steak');
 
 
 
-module.export = fetchedData;
+
+
+
+module.exports = searchByIngredient;
