@@ -1,3 +1,4 @@
+const router = require("express").Router();
 const fetch = require("node-fetch");
 require("dotenv").config();
 
@@ -19,24 +20,33 @@ const searchByIngredient = async (userSearch) => {
 
     const recipe = data.hits[0].recipe;
     const recipe_name = data.hits[0].recipe.label;
-    const is_vegetarian = await data.hits[0].recipe.healthLabels.includes("Vegetarian");
+    const is_vegetarian = await data.hits[0].recipe.healthLabels.includes(
+      "Vegetarian"
+    );
     const is_vegan = await data.hits[0].recipe.healthLabels.includes("Vegan");
-    const is_gluten_free = await data.hits[0].recipe.healthLabels.includes("Gluten-Free");
-    const contains_dairy = !(await data.hits[0].recipe.healthLabels.includes("Dairy-Free"));
-    const is_low_carb = await data.hits[0].recipe.dietLabels.includes("Low-Carb");
+    const is_gluten_free = await data.hits[0].recipe.healthLabels.includes(
+      "Gluten-Free"
+    );
+    const contains_dairy = !(await data.hits[0].recipe.healthLabels.includes(
+      "Dairy-Free"
+    ));
+    const is_low_carb = await data.hits[0].recipe.dietLabels.includes(
+      "Low-Carb"
+    );
     //returns recipe results and the caution for the 2nd recipe
-  
-    console.log(recipe_name, is_vegetarian, is_vegan, is_gluten_free, contains_dairy, is_low_carb);
-  
-    
-    if(userSearch){
+
+    console.log(
+      recipe_name,
+      is_vegetarian,
+      is_vegan,
+      is_gluten_free,
+      contains_dairy,
+      is_low_carb
+    );
+
+    if (userSearch) {
       console.log(recipe);
-      recipe.send();
     }
-
-
-
-
 
     // res.send(results, cautionResults)
     // return results, cautionResults;
@@ -44,12 +54,17 @@ const searchByIngredient = async (userSearch) => {
     (err) => console.error("error:" + err);
   }
 };
+searchByIngredient("Steak");
 
-searchByIngredient('Steak');
+// /api/apiRoute
+router.get("/", async (req, res) => {
+  // find all recipe
+  try {
+    const data = await recipe;
+    res.status(200).json(data);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
-
-
-
-
-
-module.exports = searchByIngredient;
+module.exports =  router, searchByIngredient;
