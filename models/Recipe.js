@@ -17,6 +17,19 @@ Recipe.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    recipe_url: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    recipe_img_url: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    recipe_ingredients: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+
     is_vegetarian: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
