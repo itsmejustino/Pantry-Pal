@@ -1,0 +1,13 @@
+[
+  {
+    "recipe_name": "Steak and potatoes",
+    "recipe_url": "http://steakandmusic.com/recipe_url",
+    "recipe_img_url": "http://steakandmusic.com/recipe_url",
+    "recipe_ingredients": "olive oil",
+    "is_vegetarian": true,
+    "is_vegan": true,
+    "is_low_carb": true,
+    "is_gluten_free": true,
+    "contains_dairy": true
+  }
+]
