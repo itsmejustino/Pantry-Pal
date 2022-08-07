@@ -37,6 +37,9 @@ app.get("/login", (req, res) => {
 app.get("/contact", (req, res) => {
   res.render("contact");
 });
+app.get("/userprofile", (req, res) => {
+  res.render("userprofile");
+});
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
