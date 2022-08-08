@@ -9,7 +9,7 @@ button.addEventListener("click", async () =>{
     userSearch = document.getElementById("user-input").value
 if(!userSearch){
    
-    const api_url =`recipe/chicken`
+    const api_url =`/api/apiroutes/recipe/steak`
     const response = await fetch(api_url);
     const json = await response.json();
     recipeSection.textContent = json.recipe
@@ -20,7 +20,7 @@ if(!userSearch){
 
 
 console.log(userSearch);
-const api_url =`recipe/${userSearch}`
+const api_url =`/api/apiroutes/recipe/${userSearch}`
 const response = await fetch(api_url);
 const json = await response.json();
 recipeSection.textContent = json.recipe
