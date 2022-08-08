@@ -14,6 +14,7 @@ const options = {
 router.get("/recipe/:userSearch", async (req, res) => {
   // find all recipe
   try {
+    console.log(req.params)
     const search = req.params.userSearch;
     const url = `https://edamam-recipe-search.p.rapidapi.com/search?q=${search}&to=2`;
     const fetch_response = await fetch(url, options);
