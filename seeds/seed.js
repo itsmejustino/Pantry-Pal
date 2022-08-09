@@ -5,60 +5,46 @@
 
 const sequelize = require("../config/connection");
 // const fs = require('fs');
-const { Recipe, User } = require("../models");
-
-const searchByIngredient = require("../controllers/api/apiRoute");
+const { Ingredient, Recipe, User } = require("../models");
 const seedData = require("./testRecipe.json");
+const ingredientData = require("./testIngredient.json");
 const userData = require("./userData.json");
 
 console.log(seedData);
 console.log(userData);
 
 const seedDatabase = async () => {
-  // await searchByIngredient('apple')
-  //   await sequelize.sync({ force: true });
-
   const recipe = await Recipe.bulkCreate(seedData, {
     individualHooks: true,
     returning: true,
   });
 
-  // for (const newRecipe of seedData) {
-  //   await Recipe.create({
-  //     ...newRecipe,
-  //     user_id: recipe[Math.floor(Math.random() * users.length)].id,
-  //   });
-  // }
-
-  //   process.exit(0);
-
-  // for (const newRecipe of seedData) {
-  //   await Recipe.create({
-  //     ...newRecipe,
-  //     user_id: recipe[Math.floor(Math.random() * users.length)].id,
-  //   });
-  // }
-
-  //   process.exit(0);
 };
 const seedUserDatabase = async () => {
-  // await searchByIngredient('apple')
-  //   await sequelize.sync({ force: true });
-
   const UserDb = await User.bulkCreate(userData, {
     individualHooks: true,
     returning: true,
   });
 
-  //   process.exit(0);
+};
+const seedIngredientDatabase = async () => {
+  const UserDb = await Ingredient.bulkCreate(ingredientData, {
+    individualHooks: true,
+    returning: true,
+  });
+
 };
 
 const seedAll = async () => {
   await sequelize.sync({ force: true });
+ 
   seedUserDatabase();
+  console.log("++++++seeded user Data+++++++++")
   seedDatabase();
+  console.log("++++++seeded recipe Data+++++++++")
+  seedIngredientDatabase();
+  console.log("++++++seeded ingredient Data+++++++++")
   console.log("Seed done");
 };
 seedAll();
-// seedUserDatabase();
-// seedDatabase();
+
