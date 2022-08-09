@@ -26,6 +26,27 @@ let recipeName5 = document.getElementById("recipe-name5");
 let recipeImage5 = document.getElementById("recipe-image5");
 let recipeType5 = document.getElementById("recipe-type5");
 
+let recipeArray = [];
+
+newIngredient = async (input) => {
+  userSearch = document.getElementById("user-input").value;
+  const response = await fetch(`api/ingredients`, {
+    method: "POST",
+    body: JSON.stringify({ ingredient_name: input }),
+    headers: { "Content-Type": "application/json" },
+  });
+  console.log(response);
+  response.ok
+    ? console.log("Added Ingredient to the DB")
+    : alert(response.statusText);
+};
+
+getIngredient = async () => {
+  const api_url = `api/ingredients`;
+  const response = await fetch(api_url);
+  const json = await response.json();
+  console.log(json);
+};
 
 //takes in user input from handlebars. if there is no input run a default recipe search.
 button.addEventListener("click", async () => {
@@ -67,8 +88,9 @@ button.addEventListener("click", async () => {
     recipeIngredients5.textContent = json.hits[4].recipe.ingredientLines;
     recipeImage5.src = json.hits[4].recipe.image;
     recipeType5.textContent = json.hits[4].recipe.mealType;
-    
+
     console.log(json);
-    console.log;
+    newIngredient(userSearch);
+    getIngredient();
   }
 });
