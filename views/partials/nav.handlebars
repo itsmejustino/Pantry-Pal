@@ -1,6 +1,18 @@
 <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-  <p>LOGO Goes here</p>
+  {{! <p>LOGO Goes here</p>
   <a href="Contact">Contact US</a>
   <a href="Login">Login</a>
   <a href="Signup">Sign up</a>
+  <button class="no-button" id="logout">Out of Here</button> }}
+  {{#if logged_in}}
+    <a href="userprofile">profile</a>
+    |
+    <button class="no-button" id="logout">logout</button>
+  {{else}}
+    <a href="login">login</a>
+  {{/if}}
 </nav>
+{{#if logged_in}}
+  <script src="/js/logout.js"></script>
+{{/if}}
+{{! <script src="/js/logout.js"></script> }}
