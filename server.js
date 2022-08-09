@@ -40,6 +40,9 @@ app.get("/contact", (req, res) => {
 app.get("/userprofile", (req, res) => {
   res.render("userprofile");
 });
+app.get("/signup", (req, res) => {
+  res.render("signup");
+});
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -48,5 +51,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log(`Now listening to http://localhost:${PORT}`));
+  app.listen(PORT, () =>
+    console.log(`Now listening to http://localhost:${PORT}`)
+  );
 });
