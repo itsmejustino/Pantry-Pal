@@ -77,7 +77,7 @@ createIngredientList = async () => {
   let recipeArray = json.map((i) => i.ingredient_name);
   console.log(recipeArray);
 
-  for (let i = recipeArray.length - 4; i < recipeArray.length; i++) {
+  for (let i = recipeArray.length - 1; i < recipeArray.length; i++) {
     let newLi= document.createElement('li')
     newLi.textContent = recipeArray[i]
     newLi.classList.add("dropdown-item");
