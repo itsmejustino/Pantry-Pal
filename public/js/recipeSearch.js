@@ -77,12 +77,33 @@ createIngredientList = async () => {
   let recipeArray = json.map((i) => i.ingredient_name);
   console.log(recipeArray);
 
-  for (let i = 0; i < 5; i++) {
-    let searchedIngredient = recipeArray[i];
-    console.log(searchedIngredient);
-    pastSearch.append(searchedIngredient);
+  for (let i = recipeArray.length - 4; i < recipeArray.length; i++) {
+    let newLi= document.createElement('li')
+    newLi.textContent = recipeArray[i]
+    newLi.classList.add("dropdown-item");
+    // let searchedIngredient = recipeArray[i];
+    
+    console.log(newLi);
+    dropdownUl.append(newLi);
   }
+
 };
+
+// createCards more dynamically ----debugging
+// createCards= async (input) =>{
+//   const api_url = `/api/apiroutes/recipe/${input}`;
+//     const response = await fetch(api_url);
+//     const json = await response.json();
+//   for (let i = 0; i <= 4; i++) {
+//     recipeName.textContent = json.hits[i].recipe.label;
+//     recipeIngredients.textContent = json.hits[i].recipe.ingredientLines;
+//     recipeImage.src = json.hits[i].recipe.image;
+//     recipeType.textContent = json.hits[i].recipe.mealType;
+//     recipeBtn.href = json.hits[i].recipe.url;
+//     recipeUrlButton.textContent = "More Recipe Info Here!";
+//   }
+//   return;
+// }
 
 //takes in user input from handlebars. if there is no input run a default recipe search.
 button.addEventListener("click", async () => {
@@ -116,7 +137,7 @@ button.addEventListener("click", async () => {
     recipeIngredients3.textContent = json.hits[2].recipe.ingredientLines;
     recipeImage3.src = json.hits[2].recipe.image;
     recipeType3.textContent = json.hits[2].recipe.mealType;
-    recipeBtn3.href = json.hits[1].recipe.url;
+    recipeBtn3.href = json.hits[2].recipe.url;
     console.log(recipeBtn.href);
     recipeUrlButton3.textContent = "More Recipe Info Here!";
 
@@ -125,7 +146,7 @@ button.addEventListener("click", async () => {
     recipeIngredients4.textContent = json.hits[3].recipe.ingredientLines;
     recipeImage4.src = json.hits[3].recipe.image;
     recipeType4.textContent = json.hits[3].recipe.mealType;
-    recipeBtn4.href = json.hits[1].recipe.url;
+    recipeBtn4.href = json.hits[3].recipe.url;
     console.log(recipeBtn.href);
     recipeUrlButton4.textContent = "More Recipe Info Here!";
 
@@ -134,12 +155,12 @@ button.addEventListener("click", async () => {
     recipeIngredients5.textContent = json.hits[4].recipe.ingredientLines;
     recipeImage5.src = json.hits[4].recipe.image;
     recipeType5.textContent = json.hits[4].recipe.mealType;
-    recipeBtn5.href = json.hits[1].recipe.url;
+    recipeBtn5.href = json.hits[4].recipe.url;
     console.log(recipeBtn.href);
     recipeUrlButton5.textContent = "More Recipe Info Here!";
 
-    console.log(json);
-  } else {
+  //   console.log(json);
+   } else {
     // on click
     console.log(userSearch);
     const api_url = `/api/apiroutes/recipe/${userSearch}`;
@@ -168,7 +189,7 @@ button.addEventListener("click", async () => {
     recipeIngredients3.textContent = json.hits[2].recipe.ingredientLines;
     recipeImage3.src = json.hits[2].recipe.image;
     recipeType3.textContent = json.hits[2].recipe.mealType;
-    recipeBtn3.href = json.hits[1].recipe.url;
+    recipeBtn3.href = json.hits[2].recipe.url;
     console.log(recipeBtn.href);
     recipeUrlButton3.textContent = "More Recipe Info Here!";
 
@@ -177,7 +198,7 @@ button.addEventListener("click", async () => {
     recipeIngredients4.textContent = json.hits[3].recipe.ingredientLines;
     recipeImage4.src = json.hits[3].recipe.image;
     recipeType4.textContent = json.hits[3].recipe.mealType;
-    recipeBtn4.href = json.hits[1].recipe.url;
+    recipeBtn4.href = json.hits[3].recipe.url;
     console.log(recipeBtn.href);
     recipeUrlButton4.textContent = "More Recipe Info Here!";
 
@@ -186,13 +207,14 @@ button.addEventListener("click", async () => {
     recipeIngredients5.textContent = json.hits[4].recipe.ingredientLines;
     recipeImage5.src = json.hits[4].recipe.image;
     recipeType5.textContent = json.hits[4].recipe.mealType;
-    recipeBtn5.href = json.hits[1].recipe.url;
+    recipeBtn5.href = json.hits[4].recipe.url;
     console.log(recipeBtn.href);
     recipeUrlButton5.textContent = "More Recipe Info Here!";
 
     console.log(json);
+    // createCards(userSearch);
     newIngredient(userSearch);
-    getIngredient();
+    // getIngredient();
     createIngredientList();
   }
 });
