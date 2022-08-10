@@ -1,21 +1,29 @@
-<h2>Sign-up</h2>
+<div id ="signup-container" class = "container">
+   <img id = "logo" class ="img-fluid max-width:100%" alt="Pantry Pal logo" src = "/images/PantryPal.png" />
 
-<form class="form signup-form">
+<h2 id ="signup-title">Sign-up</h2>
+
+
+<form id ="signup-form" class="form signup-form">
   <div class="form-group">
     <label for="name-login">First Name:</label>
     <input class="form-input" type="text" id="name-signup" />
   </div>
   <div class="form-group">
-    <label for="email-login">email:</label>
+    <label for="email-login">Email:</label>
     <input class="form-input" type="text" id="email-signup" />
   </div>
   <div class="form-group">
-    <label for="password-login">password:</label>
+    <label for="password-login">Password:</label>
     <input class="form-input" type="password" id="password-signup" />
   </div>
-  <div class="form-group">
-    <button class="btn btn-primary" type="submit">Sign Up</button>
-  </div>
+    <div class="button-container">
+     <a id ="login-btn" class ="btn btn-info m-2 " href="login">Login</a>
+    <a id ="signup-btn" class ="btn btn-info m-2" href="signup">Sign up</a>
+    </div>
 </form>
-
+<p class="post-script">Be prepared to end your hunger for good!</p>
+</div>
 <script src="/js/signup.js"></script>
+  
+ 
