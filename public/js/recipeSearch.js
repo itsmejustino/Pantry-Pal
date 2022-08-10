@@ -78,15 +78,15 @@ createIngredientList = async () => {
   console.log(recipeArray);
 
   for (let i = recipeArray.length - 1; i < recipeArray.length; i++) {
-    let newLi= document.createElement('li')
-    newLi.textContent = recipeArray[i]
+    let newLi = document.createElement("li");
+    newLi.textContent = recipeArray[i];
     newLi.classList.add("dropdown-item");
+    newLi.setAttribute("id", "last-search-dropdown");
     // let searchedIngredient = recipeArray[i];
-    
+
     console.log(newLi);
     dropdownUl.append(newLi);
   }
-
 };
 
 // createCards more dynamically ----debugging
@@ -110,7 +110,24 @@ button.addEventListener("click", async () => {
   userSearch = document.getElementById("user-input").value;
   //if there is no user search use default path
   if (!userSearch) {
-    const api_url = `/api/apiroutes/recipe/steak`;
+    let randomIngredientArray = [
+      "chicken",
+      "fish",
+      "vegetarian",
+      "cheese",
+      "tomato",
+      "potatoes",
+      "vegetables",
+      "fruits",
+      "bread",
+      "flour",
+      "coffee",
+      "naan",
+      "curry",
+    ];
+    let randomNumber = Math.floor(Math.random() * randomIngredientArray.length);
+    console.log(randomIngredientArray[randomNumber]);
+    const api_url = `/api/apiroutes/recipe/${randomIngredientArray[randomNumber]}`;
     const response = await fetch(api_url);
     const json = await response.json();
 
@@ -159,8 +176,8 @@ button.addEventListener("click", async () => {
     console.log(recipeBtn.href);
     recipeUrlButton5.textContent = "More Recipe Info Here!";
 
-  //   console.log(json);
-   } else {
+    //   console.log(json);
+  } else {
     // on click
     console.log(userSearch);
     const api_url = `/api/apiroutes/recipe/${userSearch}`;
@@ -218,3 +235,71 @@ button.addEventListener("click", async () => {
     createIngredientList();
   }
 });
+
+
+//search last ingredient
+//get last ingredient from db with fetch request
+//use last search to search new ingredient on click dont need to add search to db
+searchWithLastIngredient = async () => {
+  const api_url = `api/ingredients`;
+  const response = await fetch(api_url);
+  const ingredientJson = await response.json();
+console.log('got into the ingredient db')
+  let recipeArray = ingredientJson.map((i) => i.ingredient_name);
+  let lastIngredient = recipeArray[recipeArray.length-1]
+  console.log(lastIngredient)
+  // for (let i = recipeArray.length - 1; i < recipeArray.length; i++) {
+  //   lastIngredient = recipeArray[i];
+  //   return lastIngredient
+  // }
+
+  const search_api_url = `/api/apiroutes/recipe/${lastIngredient}`;
+  const searchResponse = await fetch(search_api_url);
+  const json = await searchResponse.json();
+  //card 1
+  recipeName.textContent = json.hits[0].recipe.label;
+  recipeIngredients.textContent = json.hits[0].recipe.ingredientLines;
+  recipeImage.src = json.hits[0].recipe.image;
+  recipeType.textContent = json.hits[0].recipe.mealType;
+  recipeBtn.href = json.hits[0].recipe.url;
+  console.log(recipeBtn.href);
+  recipeUrlButton.textContent = "More Recipe Info Here!";
+
+  //card 2
+  recipeName2.textContent = json.hits[1].recipe.label;
+  recipeIngredients2.textContent = json.hits[1].recipe.ingredientLines;
+  recipeImage2.src = json.hits[1].recipe.image;
+  recipeType2.textContent = json.hits[1].recipe.mealType;
+  recipeBtn2.href = json.hits[1].recipe.url;
+  console.log(recipeBtn.href);
+  recipeUrlButton2.textContent = "More Recipe Info Here!";
+
+  //card 3
+  recipeName3.textContent = json.hits[2].recipe.label;
+  recipeIngredients3.textContent = json.hits[2].recipe.ingredientLines;
+  recipeImage3.src = json.hits[2].recipe.image;
+  recipeType3.textContent = json.hits[2].recipe.mealType;
+  recipeBtn3.href = json.hits[2].recipe.url;
+  console.log(recipeBtn.href);
+  recipeUrlButton3.textContent = "More Recipe Info Here!";
+
+  //card 4
+  recipeName4.textContent = json.hits[3].recipe.label;
+  recipeIngredients4.textContent = json.hits[3].recipe.ingredientLines;
+  recipeImage4.src = json.hits[3].recipe.image;
+  recipeType4.textContent = json.hits[3].recipe.mealType;
+  recipeBtn4.href = json.hits[3].recipe.url;
+  console.log(recipeBtn.href);
+  recipeUrlButton4.textContent = "More Recipe Info Here!";
+
+  //card 5
+  recipeName5.textContent = json.hits[4].recipe.label;
+  recipeIngredients5.textContent = json.hits[4].recipe.ingredientLines;
+  recipeImage5.src = json.hits[4].recipe.image;
+  recipeType5.textContent = json.hits[4].recipe.mealType;
+  recipeBtn5.href = json.hits[4].recipe.url;
+  console.log(recipeBtn.href);
+  recipeUrlButton5.textContent = "More Recipe Info Here!";
+};
+
+pastSearch.addEventListener('click',searchWithLastIngredient());
