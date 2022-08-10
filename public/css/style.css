@@ -1,0 +1,136 @@
+#logo {
+    height: 75px;
+}
+
+#home-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 150px;
+    border: 1px solid black;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    max-height: 750px;
+    background-color: #cfd7c7;
+    border-radius: 15px;
+    box-shadow: 10px 0px 15px;   
+
+}
+
+.button-container {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+}
+
+.btn {
+    background-color: rgb(160, 193, 211);
+    border: 1px solid rgb(160, 193, 211);
+    font-family: 'Caveat', cursive;
+    font-size: 24px;
+    color: black
+}
+
+.btn:hover {
+    background-color: #40798c;
+    color: white
+}
+
+.login-p {
+    font-size: 28px;
+    font-family: "Caveat", cursive;
+}
+
+#login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 150px;
+    border: 1px solid black;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    max-height: 750px;
+    background-color: #cfd7c7;
+    border-radius: 15px;
+    box-shadow: 10px 0px 15px;
+      
+}
+
+.login-label {
+    font-family: 'Caveat', cursive;
+    font-size: 28px;
+}
+
+#login-title {
+    font-family: "Caveat", cursive;
+    font-size: 42px;
+}
+
+#login-form {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+#login-btn {
+    margin-top: 15px
+}
+
+#signup-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 150px;
+    border: 1px solid black;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    max-height: 750px;
+    background-color: #cfd7c7;
+    border-radius: 15px;
+    box-shadow: 10px 0px 15px;
+}
+
+ #signup-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-group {
+    font-family: "Caveat", cursive;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+#signup-title {
+    font-family: "Caveat", cursive;
+    font-size: 42px;
+}
+
+.post-script {
+    font-family: "Caveat", cursive;
+    font-size: 32px;
+}
+
+
+
+@media screen and (max-width: 337px) {
+    .login-p {
+        font-size: 16px
+    }
+    .btn {
+        font-size: 16px;
+    }
+    .login-label {
+        font-size: 16px;
+    }
+    .form-group {
+        font-size: 16px
+    }
+    .post-script {
+        font-size: 24px;
+    }
+}
