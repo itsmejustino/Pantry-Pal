@@ -1,17 +1,31 @@
-<h2>Login</h2>
+<div id="login-container" class="container">
+  <img
+    id="logo"
+    class="img-fluid max-width:100%"
+    alt="Pantry Pal logo"
+    src="/images/PantryPal.png"
+  />
+  <h2 id="login-title">Login</h2>
 
-<form class="form login-form">
-  <div class="form-group">
-    <label for="email-login">email:</label>
-    <input class="form-input" type="text" id="email-login" />
-  </div>
-  <div class="form-group">
-    <label for="password-login">password:</label>
-    <input class="form-input" type="password" id="password-login" />
-  </div>
-  <div class="form-group">
-    <button class="btn btn-primary" type="submit">login</button>
-  </div>
-</form>
+  <form id="login-form" class="form login-form">
 
+    <div class="form-group">
+      <label class="login-label" for="email-login">Email:</label>
+      <input class="form-input" type="text" id="email-login" />
+    </div>
+    <div class="form-group">
+      <label class="login-label" for="password-login">Password:</label>
+      <input class="form-input" type="password" id="password-login" />
+    </div>
+    <div class="button-container">
+      <div class="button-container">
+        <a id="login-btn" class="btn btn-info m-2" href="login">Login</a>
+        <a id="signup-btn" class="btn btn-info m-2" href="signup">Sign up</a>
+      </div>
+    </div>
+
+    <p class="post-script">Welcome back to Pantry Pal!</p>
+
+  </form>
+</div>
 <script src="/js/login.js"></script>
