@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-  {{!-- search section --}}
-=======
 {{!-- Nav bar --}}
 
 <header id = "navbar" class = "container">
@@ -25,82 +21,82 @@
   </div>
 </div>
 
-
 {{!-- search section --}}
->>>>>>> 26904f127302d3a7578a6fe129ae099b0703454a
 <section class="d-flex justify-content-center">
 
-  <div id ="search-input" class="input-group" style="margin-top: 25px; margin-bottom:100px;">
+  <div class="input-group" style="margin-top: 100px; margin-bottom:100px; width:400px;">
     <input type="text" id="user-input" class="form-control" aria-label="Text input with segmented dropdown button"
       placeholder="What's in the pantry?">
     <button type="button" id="search-button" class="btn btn-outline-secondary">Search</button>
-   
+
     <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
       data-bs-toggle="dropdown" aria-expanded="false">
       <span class="visually-hidden">Toggle Dropdown</span>
     </button>
     <ul id="dropdown-ul"class="dropdown-menu dropdown-menu-end">
-       <button type="button" id="search-button" class=" surprise btn btn-outline-secondary">Surprise Me!</button>
+       <button type="button" id="surprise-me-button" class="btn btn-outline-secondary">Surprise Me!</button>
       <li>
         <hr class="dropdown-divider">
       </li>
     </ul>
   </div>
 
+  </div>
+
 </section>
 
 {{!-- results from search section --}}
 <section class="d-flex justify-content-center flex-wrap align-self-center" style="gap: 2em;">
-{{!-- card 1 --}}
+  {{!-- card 1 --}}
   <div class="text-center" style="width: 300px">
     <h1 id="recipe-name"></h1>
     <div>
     <img class="d-flex justify-content-center img-fluid rounded mx-auto d-block" id="recipe-image"> </img>
-    <a id="recipe-btn" target="_blank"><button id="recipe-url"  type="button" class="btn btn-info"></button></a>
+    <a id="recipe-btn"><button id="recipe-url" type="button" class="btn btn-info"></button></a>
     </div>
     <p class="text-center" id="recipe-type"> </p>
     <p class="flex-wrap text-center" id="recipe-section"> </p>
   </div>
 
-{{!-- card 2 --}}
+  {{!-- card 2 --}}
   <div class="text-center" style="width: 300px">
     <h1 id="recipe-name2"></h1>
     <div>
     <img class="d-flex justify-content-center img-fluid rounded mx-auto d-block" id="recipe-image2"> </img>
-    <a id="recipe-btn2" target="_blank"><button id="recipe-url2" type="button" class="btn btn-info"></button></a>
+    <a id="recipe-btn2"><button id="recipe-url2" type="button" class="btn btn-info"></button></a>
     </div>
     <p class="text-center" id="recipe-type2"> </p>
     <p class="flex-wrap text-center" id="recipe-section2"> </p>
   </div>
 
-{{!-- card 3 --}}
+  {{!-- card 3 --}}
   <div class="text-center" style="width: 300px">
     <h1 id="recipe-name3"></h1>
     <div>
     <img class="d-flex justify-content-center img-fluid rounded mx-auto d-block" id="recipe-image3"> </img>
-    <a id="recipe-btn3" target="_blank"><button id="recipe-url3" type="button" class="btn btn-info"></button></a>
+    <a id="recipe-btn3"><button id="recipe-url3" type="button" class="btn btn-info"></button></a>
     </div>
     <p class="text-center" id="recipe-type3"> </p>
     <p class="flex-wrap text-center" id="recipe-section3"> </p>
   </div>
 
-{{!-- card 4 --}}
+  {{!-- card 4 --}}
   <div class="text-center" style="width: 300px">
     <h1 id="recipe-name4"></h1>
     <div>
     <img class="d-flex justify-content-center img-fluid rounded mx-auto d-block" id="recipe-image4"> </img>
-    <a id="recipe-btn4" target="_blank"><button id="recipe-url4" type="button" class="btn btn-info"></button></a>
+    <a id="recipe-btn4"><button id="recipe-url4" type="button" class="btn btn-info"></button></a>
     </div>
     <p class="text-center" id="recipe-type4"> </p>
     <p class="flex-wrap text-center" id="recipe-section4"> </p>
   </div>
 
-{{!-- card 5 --}}
+  {{!-- card 5 --}}
   <div class="text-center" style="width: 300px; ">
     <h1 id="recipe-name5"></h1>
     <div>
     <img class="d-flex justify-content-center img-fluid rounded mx-auto d-block" id="recipe-image5"> </img>
-    <a id="recipe-btn5" target="_blank"><button id="recipe-url5" type="button" class="btn btn-info"></button></a>
+    <a id="recipe-btn5"><button id="recipe-url5" type="button" class="btn btn-info"></button></a>
     </div>
     <p class="text-center" id="recipe-type5"> </p>
     <p class="flex-wrap text-center" id="recipe-section5"> </p>
@@ -110,18 +106,4 @@
 
 {{!-- connect to public js recipeSearch --}}
 <script type="text/javascript" src="/js/recipeSearch.js"></script>
-<<<<<<< HEAD
-
-
-
-
-
-
-
-
-
-
-
-=======
 <script type="text/javascript" src="/js/logout.js"></script>
->>>>>>> 26904f127302d3a7578a6fe129ae099b0703454a
