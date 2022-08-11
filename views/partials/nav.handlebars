@@ -1,5 +1,7 @@
-
-<nav class="navbar navbar-light d-flex flex-row justify-content-start" style="background-color: #e3f2fd;">
+<nav
+  class="navbar navbar-light d-flex flex-row justify-content-start"
+  style="background-color: #e3f2fd;"
+>
   {{! <p>LOGO Goes here</p>
   <a href="Contact">Contact US</a>
   <a href="Login">Login</a>
@@ -8,10 +10,10 @@
   {{#if logged_in}}
     <a href="userprofile">Profile</a>
     |
-    <button class=" btn no-button" id="logout">Logout</button>
+    <button class="btn no-button" id="logout">Logout</button>
   {{else}}
-    {{!-- <a class ="btn btn-primary m-2 " href="login">Login</a>
-    <a class ="btn btn-primary m-2" href="signup">Sign up</a> --}}
+    {{! <a class ="btn btn-primary m-2 " href="login">Login</a>
+    <a class ="btn btn-primary m-2" href="signup">Sign up</a> }}
   {{/if}}
 </nav>
 {{#if logged_in}}
