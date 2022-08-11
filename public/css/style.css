@@ -31,12 +31,20 @@
 }
 
 #dropdown-ul {
-  border: 1px solid white  
-  
+  border: 1px solid white;  
+  background: none;
 }
 
 .dropdown-divider {
     border-bottom: 1px solid black
+}
+
+#info-svg{
+  overflow: hidden;
+}
+#info-svg:hover{
+ fill:rgb(175, 175, 175);
+  text-decoration: none;
 }
 
 #search-input {
