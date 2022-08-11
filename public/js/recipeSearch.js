@@ -182,7 +182,9 @@ button.addEventListener("click", async () => {
     const api_url = `/api/apiroutes/recipe/${userSearch}`;
     const response = await fetch(api_url);
     const json = await response.json();
-
+    console.log(json.more);
+    if (json.more === false) return modalError();
+  
     //card 1
     recipeName.textContent = json.hits[0].recipe.label;
     recipeIngredients.textContent = json.hits[0].recipe.ingredientLines;
@@ -350,4 +352,25 @@ const searchWithLastIngredient = async (input) => {
   recipeBtn5.href = json.hits[4].recipe.url;
 
   recipeUrlButton5.textContent = "More Recipe Info Here!";
+};
+
+const modalError = () => {
+
+  var myDiv = document.createElement("div");
+
+  //Set its unique ID.
+  myDiv.id = "div_id";
+
+  //Add your content to the DIV
+  myDiv.innerHTML = `<div class="alert alert-secondary" role="alert" style="width: 350px; display:flex; justify-content: center; text-align: center;">
+ <h4>Could not search with that ingredient. Try a different search!</h4>
+</div>`;
+
+  //Finally, append the element to the HTML body
+  document.getElementById('modal-container').appendChild(myDiv);
+
+  setTimeout(()=>document.getElementById('div_id').style.visibility = "visible")
+  setTimeout(()=>document.getElementById('div_id').remove(), 5000)
+
+
 };
