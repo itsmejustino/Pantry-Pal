@@ -1,30 +1,57 @@
 {{!-- Nav bar --}}
 
-<header id = "navbar" class = "container">
-  <h1 id = "title-header">Welcome to Pantry-pal</h1>
-   <div class = "dropdown">
-    <button class = "btn btn-secondary dropdown-toggle" type = "button" id="option-dropdown" data-bs-toggle="dropdown">
+<header id="navbar" class="container">
+  <h1 id="title-header">Welcome to Pantry-pal</h1>
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="option-dropdown" data-bs-toggle="dropdown">
       Options
     </button>
-    <ul id = "option-dropdown" class="dropdown-menu" aria-labelledby="option-dropdown">
+    <ul id="option-dropdown" class="dropdown-menu" aria-labelledby="option-dropdown">
       <li><a href="contact" class="btn btn-info m-2">Contact Us</a></li>
       <li> <a id="logout" class="btn btn-info m-2">Logout</a></li>
     </ul>
-   </div>
+  </div>
 </header>
 
 
 {{!-- Jumbotron --}}
-<div id = "jumbotron" class="jumbotron max-width: 100% jumbotron-fluid mt-1">
-  <div id = "jumbo-logo" class="container">
-    <img class="img-fluid max-width: 100% height: auto" src = "https://github.com/itsmejustino/Pantry-Pal/blob/main/public/images/My%20project-1%20(3).png?raw=true">
+<div id="jumbotron" class="jumbotron max-width: 100% jumbotron-fluid mt-1">
+  <div id="jumbo-logo" class="container">
+    <img class="img-fluid max-width: 100% height: auto"
+      src="https://github.com/itsmejustino/Pantry-Pal/blob/main/public/images/My%20project-1%20(3).png?raw=true">
   </div>
 </div>
 
 {{!-- search section --}}
-<section class="d-flex justify-content-center" >
+<section class="d-flex justify-content-center">
 
   <div class="input-group" style="margin-top: 100px; margin-bottom:100px; width:400px;">
+    
+   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+      class="bi bi-question-circle-fill" id ="info-svg" viewBox="0 0 16 16" style="margin-right: 4px;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <path
+        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z" />
+    </svg>
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Pantry Pal is made for the hungry individual looking for some ideas to quench their hunger. <br>
+        Type in your search inside of the input bar and click on "Search" to get five fresh ideas! <br>
+        Your recent searches will be saved within the drop down menu that can be used by clicking on the down arrow.<br><br>
+        <h4>NOTE: Not feeling motivated to put in a search item? Click on the "Surprise Me!" button within the list drop down.</h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
     <input type="text" id="user-input" class="form-control" aria-label="Text input with segmented dropdown button"
       placeholder="What's in the pantry?">
     <button type="button" id="search-button" class="btn btn-outline-secondary">Search</button>
@@ -33,16 +60,16 @@
       data-bs-toggle="dropdown" aria-expanded="false">
       <span class="visually-hidden">Toggle Dropdown</span>
     </button>
-    <ul id="dropdown-ul"class="dropdown-menu dropdown-menu-end">
+    <ul id="dropdown-ul" class="dropdown-menu dropdown-menu-end">
       <div class="d-flex justify-content-center">
-       <button type="button" id="surprise-me-button" class="btn btn-outline-secondary">Surprise Me!</button>
-      <li>
-        <hr class="dropdown-divider">
-      </li>
+        <button type="button" id="surprise-me-button" class="btn btn-outline-secondary">Surprise Me!</button>
+        <li>
+          <hr class="dropdown-divider">
+        </li>
     </ul>
-    <div id = "modal-container" style="margin-top: 10px;" style="display:flex; justify-content: center;"> </div>
-    </div>
-    
+    <div id="modal-container" style="margin-top: 10px;" style="display:flex; justify-content: center;"> </div>
+  </div>
+
   </div>
 
 </section>
@@ -53,8 +80,8 @@
   <div class="text-center" style="width: 300px">
     <h1 id="recipe-name"></h1>
     <div>
-    <img class="d-flex justify-content-center img-fluid rounded mx-auto d-block" id="recipe-image"> </img>
-    <a id="recipe-btn"><button id="recipe-url" type="button" class="btn btn-info"></button></a>
+      <img class="d-flex justify-content-center img-fluid rounded mx-auto d-block" id="recipe-image"> </img>
+      <a id="recipe-btn"><button id="recipe-url" type="button" class="btn btn-info"></button></a>
     </div>
     <p class="text-center" id="recipe-type"> </p>
     <p class="flex-wrap text-center" id="recipe-section"> </p>
@@ -64,8 +91,8 @@
   <div class="text-center" style="width: 300px">
     <h1 id="recipe-name2"></h1>
     <div>
-    <img class="d-flex justify-content-center img-fluid rounded mx-auto d-block" id="recipe-image2"> </img>
-    <a id="recipe-btn2" target="_blank"><button id="recipe-url2" type="button" class="btn btn-info"></button></a>
+      <img class="d-flex justify-content-center img-fluid rounded mx-auto d-block" id="recipe-image2"> </img>
+      <a id="recipe-btn2" target="_blank"><button id="recipe-url2" type="button" class="btn btn-info"></button></a>
     </div>
     <p class="text-center" id="recipe-type2"> </p>
     <p class="flex-wrap text-center" id="recipe-section2"> </p>
@@ -75,8 +102,8 @@
   <div class="text-center" style="width: 300px">
     <h1 id="recipe-name3"></h1>
     <div>
-    <img class="d-flex justify-content-center img-fluid rounded mx-auto d-block" id="recipe-image3"> </img>
-    <a id="recipe-btn3" target="_blank"><button id="recipe-url3" type="button" class="btn btn-info"></button></a>
+      <img class="d-flex justify-content-center img-fluid rounded mx-auto d-block" id="recipe-image3"> </img>
+      <a id="recipe-btn3" target="_blank"><button id="recipe-url3" type="button" class="btn btn-info"></button></a>
     </div>
     <p class="text-center" id="recipe-type3"> </p>
     <p class="flex-wrap text-center" id="recipe-section3"> </p>
@@ -86,8 +113,8 @@
   <div class="text-center" style="width: 300px">
     <h1 id="recipe-name4"></h1>
     <div>
-    <img class="d-flex justify-content-center img-fluid rounded mx-auto d-block" id="recipe-image4"> </img>
-    <a id="recipe-btn4" target="_blank"><button id="recipe-url4" type="button" class="btn btn-info"></button></a>
+      <img class="d-flex justify-content-center img-fluid rounded mx-auto d-block" id="recipe-image4"> </img>
+      <a id="recipe-btn4" target="_blank"><button id="recipe-url4" type="button" class="btn btn-info"></button></a>
     </div>
     <p class="text-center" id="recipe-type4"> </p>
     <p class="flex-wrap text-center" id="recipe-section4"> </p>
@@ -97,8 +124,8 @@
   <div class="text-center" style="width: 300px; ">
     <h1 id="recipe-name5"></h1>
     <div>
-    <img class="d-flex justify-content-center img-fluid rounded mx-auto d-block" id="recipe-image5"> </img>
-    <a id="recipe-btn5" target="_blank"><button id="recipe-url5" type="button" class="btn btn-info"></button></a>
+      <img class="d-flex justify-content-center img-fluid rounded mx-auto d-block" id="recipe-image5"> </img>
+      <a id="recipe-btn5" target="_blank"><button id="recipe-url5" type="button" class="btn btn-info"></button></a>
     </div>
     <p class="text-center" id="recipe-type5"> </p>
     <p class="flex-wrap text-center" id="recipe-section5"> </p>
@@ -109,4 +136,3 @@
 {{!-- connect to public js recipeSearch --}}
 <script type="text/javascript" src="/js/recipeSearch.js"></script>
 <script type="text/javascript" src="/js/logout.js"></script>
-
