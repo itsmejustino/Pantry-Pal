@@ -8,41 +8,12 @@ let surpriseBtn = document.getElementById("surprise-me-button");
 
 // start card items
 let recipeUrlButton = document.getElementById("recipe-url");
-let recipeUrlButton2 = document.getElementById("recipe-url2");
-let recipeUrlButton3 = document.getElementById("recipe-url3");
-let recipeUrlButton4 = document.getElementById("recipe-url4");
-let recipeUrlButton5 = document.getElementById("recipe-url5");
 
 let recipeBtn = document.getElementById("recipe-btn");
-let recipeBtn2 = document.getElementById("recipe-btn2");
-let recipeBtn3 = document.getElementById("recipe-btn3");
-let recipeBtn4 = document.getElementById("recipe-btn4");
-let recipeBtn5 = document.getElementById("recipe-btn5");
 
 let recipeIngredients = document.getElementById("recipe-section");
-let recipeName = document.getElementById("recipe-name");
-let recipeImage = document.getElementById("recipe-image");
-let recipeType = document.getElementById("recipe-type");
 
-let recipeIngredients2 = document.getElementById("recipe-section2");
-let recipeName2 = document.getElementById("recipe-name2");
-let recipeImage2 = document.getElementById("recipe-image2");
-let recipeType2 = document.getElementById("recipe-type2");
-
-let recipeIngredients3 = document.getElementById("recipe-section3");
-let recipeName3 = document.getElementById("recipe-name3");
-let recipeImage3 = document.getElementById("recipe-image3");
-let recipeType3 = document.getElementById("recipe-type3");
-
-let recipeIngredients4 = document.getElementById("recipe-section4");
-let recipeName4 = document.getElementById("recipe-name4");
-let recipeImage4 = document.getElementById("recipe-image4");
-let recipeType4 = document.getElementById("recipe-type4");
-
-let recipeIngredients5 = document.getElementById("recipe-section5");
-let recipeName5 = document.getElementById("recipe-name5");
-let recipeImage5 = document.getElementById("recipe-image5");
-let recipeType5 = document.getElementById("recipe-type5");
+let recipeCardSection = document.getElementById("recipe-card");
 // end card items
 
 //adds searched ingredient to db
@@ -89,24 +60,10 @@ createIngredientList = async () => {
   }
 };
 
-// createCards more dynamically ----debugging
-// createCards= async (input) =>{
-//   const api_url = `/api/apiroutes/recipe/${input}`;
-//     const response = await fetch(api_url);
-//     const json = await response.json();
-//   for (let i = 0; i <= 4; i++) {
-//     recipeName.textContent = json.hits[i].recipe.label;
-//     recipeIngredients.textContent = json.hits[i].recipe.ingredientLines;
-//     recipeImage.src = json.hits[i].recipe.image;
-//     recipeType.textContent = json.hits[i].recipe.mealType;
-//     recipeBtn.href = json.hits[i].recipe.url;
-//     recipeUrlButton.textContent = "More Recipe Info Here!";
-//   }
-//   return;
-// }
-
 //takes in user input from handlebars. if there is no input run a default recipe search.
 button.addEventListener("click", async () => {
+  document.getElementById("recipe-card").innerHTML = "";
+
   userSearch = document.getElementById("user-input").value;
   //if there is no user search use default path
   if (!userSearch) {
@@ -124,6 +81,8 @@ button.addEventListener("click", async () => {
       "coffee",
       "naan",
       "curry",
+      "beans",
+      "eggs",
     ];
     let randomNumber = Math.floor(Math.random() * randomIngredientArray.length);
     console.log(randomIngredientArray[randomNumber]);
@@ -131,111 +90,118 @@ button.addEventListener("click", async () => {
     const api_url = `/api/apiroutes/recipe/${randomIngredientArray[randomNumber]}`;
     const response = await fetch(api_url);
     const json = await response.json();
-
     //card 1
-    recipeName.textContent = json.hits[0].recipe.label;
-    recipeIngredients.textContent = json.hits[0].recipe.ingredientLines;
-    recipeImage.src = json.hits[0].recipe.image;
-    recipeType.textContent = json.hits[0].recipe.mealType;
-    recipeBtn.href = json.hits[0].recipe.url;
+    for (let i = 0; i < 5; i++) {
+      let card = document.createElement("div");
+      let recipeName = document.createElement("h1");
+      let recipeImageDiv = document.createElement("div");
+      let recipeImage = document.createElement("img");
+      let recipeType = document.createElement("p");
+      let recipeIngredients = document.createElement("p");
+      let recipeLink = document.createElement("a");
+      let recipeBtn = document.createElement("button");
 
-    recipeUrlButton.textContent = "More Recipe Info Here!";
+      let cardClass = "text-center recipe-box";
+      let cardStyle = "width: 300px";
+      let imageClass =
+        "d-flex justify-content-center img-fluid rounded mx-auto d-block";
+      let buttonClass = "recipe-btn btn btn-info";
+      card.id = "recipeCard";
+      card.setAttribute("class", cardClass);
+      card.setAttribute("style", cardStyle);
+      recipeImage.setAttribute("class", imageClass);
+      recipeType.setAttribute("class", "text-center");
+      recipeIngredients.setAttribute("class", "flex-wrap");
+      recipeIngredients.setAttribute("class", "text-center");
+      recipeBtn.setAttribute("type", "button");
+      recipeBtn.setAttribute("class", buttonClass);
+      recipeLink.setAttribute("target", "_blank");
 
-    //card 2
-    recipeName2.textContent = json.hits[1].recipe.label;
-    recipeIngredients2.textContent = json.hits[1].recipe.ingredientLines;
-    recipeImage2.src = json.hits[1].recipe.image;
-    recipeType2.textContent = json.hits[1].recipe.mealType;
-    recipeBtn2.href = json.hits[1].recipe.url;
+      console.log(card);
+      console.log(recipeCardSection);
 
-    recipeUrlButton2.textContent = "More Recipe Info Here!";
+      card.appendChild(recipeName);
+      card.append(recipeImageDiv);
+      recipeImageDiv.appendChild(recipeImage);
+      recipeImageDiv.appendChild(recipeLink);
+      recipeLink.appendChild(recipeBtn);
+      card.appendChild(recipeType);
+      card.appendChild(recipeIngredients);
+      recipeCardSection.append(card);
 
-    //card 3
-    recipeName3.textContent = json.hits[2].recipe.label;
-    recipeIngredients3.textContent = json.hits[2].recipe.ingredientLines;
-    recipeImage3.src = json.hits[2].recipe.image;
-    recipeType3.textContent = json.hits[2].recipe.mealType;
-    recipeBtn3.href = json.hits[2].recipe.url;
-
-    recipeUrlButton3.textContent = "More Recipe Info Here!";
-
-    //card 4
-    recipeName4.textContent = json.hits[3].recipe.label;
-    recipeIngredients4.textContent = json.hits[3].recipe.ingredientLines;
-    recipeImage4.src = json.hits[3].recipe.image;
-    recipeType4.textContent = json.hits[3].recipe.mealType;
-    recipeBtn4.href = json.hits[3].recipe.url;
-
-    recipeUrlButton4.textContent = "More Recipe Info Here!";
-
-    //card 5
-    recipeName5.textContent = json.hits[4].recipe.label;
-    recipeIngredients5.textContent = json.hits[4].recipe.ingredientLines;
-    recipeImage5.src = json.hits[4].recipe.image;
-    recipeType5.textContent = json.hits[4].recipe.mealType;
-    recipeBtn5.href = json.hits[4].recipe.url;
-
-    recipeUrlButton5.textContent = "More Recipe Info Here!";
+      recipeName.textContent = json.hits[i].recipe.label;
+      recipeIngredients.textContent = json.hits[i].recipe.ingredientLines;
+      recipeImage.src = json.hits[i].recipe.image;
+      recipeType.textContent = json.hits[i].recipe.mealType;
+      recipeLink.href = json.hits[i].recipe.url;
+      recipeBtn.textContent = "More Recipe Info Here!";
+    }
   } else {
     // on click
+
+    document.getElementById("recipe-card").innerHTML = "";
+
     console.log(userSearch);
     const api_url = `/api/apiroutes/recipe/${userSearch}`;
     const response = await fetch(api_url);
     const json = await response.json();
     console.log(json.more);
     if (json.more === false) return modalError();
-  
-    //card 1
-    recipeName.textContent = json.hits[0].recipe.label;
-    recipeIngredients.textContent = json.hits[0].recipe.ingredientLines;
-    recipeImage.src = json.hits[0].recipe.image;
-    recipeType.textContent = json.hits[0].recipe.mealType;
-    recipeBtn.href = json.hits[0].recipe.url;
+    for (let i = 0; i < 5; i++) {
+      let card = document.createElement("div");
+      let recipeName = document.createElement("h1");
+      let recipeImageDiv = document.createElement("div");
+      let recipeImage = document.createElement("img");
+      let recipeType = document.createElement("p");
+      let recipeIngredients = document.createElement("p");
+      let recipeLink = document.createElement("a");
+      let recipeBtn = document.createElement("button");
 
-    recipeUrlButton.textContent = "More Recipe Info Here!";
+      let cardClass = "text-center recipe-box";
+      let cardStyle = "width: 300px";
+      let imageClass =
+        "d-flex justify-content-center img-fluid rounded mx-auto d-block";
+      let buttonClass = "recipe-btn btn btn-info";
 
-    //card 2
-    recipeName2.textContent = json.hits[1].recipe.label;
-    recipeIngredients2.textContent = json.hits[1].recipe.ingredientLines;
-    recipeImage2.src = json.hits[1].recipe.image;
-    recipeType2.textContent = json.hits[1].recipe.mealType;
-    recipeBtn2.href = json.hits[1].recipe.url;
+      card.id = "recipeCard";
+      card.setAttribute("class", cardClass);
+      card.setAttribute("style", cardStyle);
+      recipeImage.setAttribute("class", imageClass);
+      recipeType.setAttribute("class", "text-center");
+      recipeIngredients.setAttribute("class", "flex-wrap");
+      recipeIngredients.setAttribute("class", "text-center");
+      recipeBtn.setAttribute("type", "button");
+      recipeBtn.setAttribute("class", buttonClass);
+      recipeLink.setAttribute("target", "_blank");
 
-    recipeUrlButton2.textContent = "More Recipe Info Here!";
+      console.log(card);
+      console.log(recipeCardSection);
 
-    //card 3
-    recipeName3.textContent = json.hits[2].recipe.label;
-    recipeIngredients3.textContent = json.hits[2].recipe.ingredientLines;
-    recipeImage3.src = json.hits[2].recipe.image;
-    recipeType3.textContent = json.hits[2].recipe.mealType;
-    recipeBtn3.href = json.hits[2].recipe.url;
+      card.appendChild(recipeName);
+      card.append(recipeImageDiv);
+      recipeImageDiv.appendChild(recipeImage);
+      recipeImageDiv.appendChild(recipeLink);
+      recipeLink.appendChild(recipeBtn);
+      card.appendChild(recipeType);
+      card.appendChild(recipeIngredients);
+      recipeCardSection.append(card);
 
-    recipeUrlButton3.textContent = "More Recipe Info Here!";
+      recipeName.textContent = json.hits[i].recipe.label;
+      recipeIngredients.textContent = json.hits[i].recipe.ingredientLines;
+      recipeImage.src = json.hits[i].recipe.image;
+      recipeType.textContent = json.hits[i].recipe.mealType;
+      recipeLink.href = json.hits[i].recipe.url;
+      recipeBtn.textContent = "More Recipe Info Here!";
+    }
 
-    //card 4
-    recipeName4.textContent = json.hits[3].recipe.label;
-    recipeIngredients4.textContent = json.hits[3].recipe.ingredientLines;
-    recipeImage4.src = json.hits[3].recipe.image;
-    recipeType4.textContent = json.hits[3].recipe.mealType;
-    recipeBtn4.href = json.hits[3].recipe.url;
-
-    recipeUrlButton4.textContent = "More Recipe Info Here!";
-
-    //card 5
-    recipeName5.textContent = json.hits[4].recipe.label;
-    recipeIngredients5.textContent = json.hits[4].recipe.ingredientLines;
-    recipeImage5.src = json.hits[4].recipe.image;
-    recipeType5.textContent = json.hits[4].recipe.mealType;
-    recipeBtn5.href = json.hits[4].recipe.url;
-
-    recipeUrlButton5.textContent = "More Recipe Info Here!";
-
-    newIngredient(userSearch);
     createIngredientList();
+    newIngredient(userSearch);
   }
 });
 
 surpriseBtn.addEventListener("click", async () => {
+  document.getElementById("recipe-card").innerHTML = "";
+
   let randomIngredientArray = [
     "chicken",
     "fish",
@@ -257,105 +223,55 @@ surpriseBtn.addEventListener("click", async () => {
   const api_url = `/api/apiroutes/recipe/${randomIngredientArray[randomNumber]}`;
   const response = await fetch(api_url);
   const json = await response.json();
+  for (let i = 0; i < 5; i++) {
+    let card = document.createElement("div");
+    let recipeName = document.createElement("h1");
+    let recipeImageDiv = document.createElement("div");
+    let recipeImage = document.createElement("img");
+    let recipeType = document.createElement("p");
+    let recipeIngredients = document.createElement("p");
+    let recipeLink = document.createElement("a");
+    let recipeBtn = document.createElement("button");
 
-  //card 1
-  recipeName.textContent = json.hits[0].recipe.label;
-  recipeIngredients.textContent = json.hits[0].recipe.ingredientLines;
-  recipeImage.src = json.hits[0].recipe.image;
-  recipeType.textContent = json.hits[0].recipe.mealType;
-  recipeBtn.href = json.hits[0].recipe.url;
+    let cardClass = "text-center recipe-box";
+    let cardStyle = "width: 300px";
+    let imageClass =
+      "d-flex justify-content-center img-fluid rounded mx-auto d-block";
+    let buttonClass = "recipe-btn btn btn-info";
 
-  recipeUrlButton.textContent = "More Recipe Info Here!";
+    card.id = "recipeCard";
+    card.setAttribute("class", cardClass);
+    card.setAttribute("style", cardStyle);
+    recipeImage.setAttribute("class", imageClass);
+    recipeType.setAttribute("class", "text-center");
+    recipeIngredients.setAttribute("class", "flex-wrap");
+    recipeIngredients.setAttribute("class", "text-center");
+    recipeBtn.setAttribute("type", "button");
+    recipeBtn.setAttribute("class", buttonClass);
+    recipeLink.setAttribute("target", "_blank");
 
-  //card 2
-  recipeName2.textContent = json.hits[1].recipe.label;
-  recipeIngredients2.textContent = json.hits[1].recipe.ingredientLines;
-  recipeImage2.src = json.hits[1].recipe.image;
-  recipeType2.textContent = json.hits[1].recipe.mealType;
-  recipeBtn2.href = json.hits[1].recipe.url;
+    console.log(card);
+    console.log(recipeCardSection);
 
-  recipeUrlButton2.textContent = "More Recipe Info Here!";
+    card.appendChild(recipeName);
+    card.append(recipeImageDiv);
+    recipeImageDiv.appendChild(recipeImage);
+    recipeImageDiv.appendChild(recipeLink);
+    recipeLink.appendChild(recipeBtn);
+    card.appendChild(recipeType);
+    card.appendChild(recipeIngredients);
+    recipeCardSection.append(card);
 
-  //card 3
-  recipeName3.textContent = json.hits[2].recipe.label;
-  recipeIngredients3.textContent = json.hits[2].recipe.ingredientLines;
-  recipeImage3.src = json.hits[2].recipe.image;
-  recipeType3.textContent = json.hits[2].recipe.mealType;
-  recipeBtn3.href = json.hits[2].recipe.url;
-
-  recipeUrlButton3.textContent = "More Recipe Info Here!";
-
-  //card 4
-  recipeName4.textContent = json.hits[3].recipe.label;
-  recipeIngredients4.textContent = json.hits[3].recipe.ingredientLines;
-  recipeImage4.src = json.hits[3].recipe.image;
-  recipeType4.textContent = json.hits[3].recipe.mealType;
-  recipeBtn4.href = json.hits[3].recipe.url;
-
-  recipeUrlButton4.textContent = "More Recipe Info Here!";
-
-  //card 5
-  recipeName5.textContent = json.hits[4].recipe.label;
-  recipeIngredients5.textContent = json.hits[4].recipe.ingredientLines;
-  recipeImage5.src = json.hits[4].recipe.image;
-  recipeType5.textContent = json.hits[4].recipe.mealType;
-  recipeBtn5.href = json.hits[4].recipe.url;
-
-  recipeUrlButton5.textContent = "More Recipe Info Here!";
+    recipeName.textContent = json.hits[i].recipe.label;
+    recipeIngredients.textContent = json.hits[i].recipe.ingredientLines;
+    recipeImage.src = json.hits[i].recipe.image;
+    recipeType.textContent = json.hits[i].recipe.mealType;
+    recipeLink.href = json.hits[i].recipe.url;
+    recipeBtn.textContent = "More Recipe Info Here!";
+  }
 });
 
-const searchWithLastIngredient = async (input) => {
-  const search_api_url = `/api/apiroutes/recipe/${input}`;
-  const searchResponse = await fetch(search_api_url);
-  const json = await searchResponse.json();
-  //card 1
-  recipeName.textContent = json.hits[0].recipe.label;
-  recipeIngredients.textContent = json.hits[0].recipe.ingredientLines;
-  recipeImage.src = json.hits[0].recipe.image;
-  recipeType.textContent = json.hits[0].recipe.mealType;
-  recipeBtn.href = json.hits[0].recipe.url;
-
-  recipeUrlButton.textContent = "More Recipe Info Here!";
-
-  //card 2
-  recipeName2.textContent = json.hits[1].recipe.label;
-  recipeIngredients2.textContent = json.hits[1].recipe.ingredientLines;
-  recipeImage2.src = json.hits[1].recipe.image;
-  recipeType2.textContent = json.hits[1].recipe.mealType;
-  recipeBtn2.href = json.hits[1].recipe.url;
-
-  recipeUrlButton2.textContent = "More Recipe Info Here!";
-
-  //card 3
-  recipeName3.textContent = json.hits[2].recipe.label;
-  recipeIngredients3.textContent = json.hits[2].recipe.ingredientLines;
-  recipeImage3.src = json.hits[2].recipe.image;
-  recipeType3.textContent = json.hits[2].recipe.mealType;
-  recipeBtn3.href = json.hits[2].recipe.url;
-
-  recipeUrlButton3.textContent = "More Recipe Info Here!";
-
-  //card 4
-  recipeName4.textContent = json.hits[3].recipe.label;
-  recipeIngredients4.textContent = json.hits[3].recipe.ingredientLines;
-  recipeImage4.src = json.hits[3].recipe.image;
-  recipeType4.textContent = json.hits[3].recipe.mealType;
-  recipeBtn4.href = json.hits[3].recipe.url;
-
-  recipeUrlButton4.textContent = "More Recipe Info Here!";
-
-  //card 5
-  recipeName5.textContent = json.hits[4].recipe.label;
-  recipeIngredients5.textContent = json.hits[4].recipe.ingredientLines;
-  recipeImage5.src = json.hits[4].recipe.image;
-  recipeType5.textContent = json.hits[4].recipe.mealType;
-  recipeBtn5.href = json.hits[4].recipe.url;
-
-  recipeUrlButton5.textContent = "More Recipe Info Here!";
-};
-
 const modalError = () => {
-
   var myDiv = document.createElement("div");
 
   //Set its unique ID.
@@ -367,10 +283,10 @@ const modalError = () => {
 </div>`;
 
   //Finally, append the element to the HTML body
-  document.getElementById('modal-container').appendChild(myDiv);
+  document.getElementById("modal-container").appendChild(myDiv);
 
-  setTimeout(()=>document.getElementById('div_id').style.visibility = "visible")
-  setTimeout(()=>document.getElementById('div_id').remove(), 5000)
-
-
+  setTimeout(
+    () => (document.getElementById("div_id").style.visibility = "visible")
+  );
+  setTimeout(() => document.getElementById("div_id").remove(), 5000);
 };
