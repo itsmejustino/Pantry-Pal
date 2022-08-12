@@ -1,245 +1,263 @@
+
+
 #navbar, #contact-navbar {
-    display: flex;
-    flex-direction: row;
-    
-    margin-bottom: 10px;
-    background-color: #f6f1d1;
-    max-width: 100%;
-    justify-content:  space-between;
+  display: flex;
+  flex-direction: row;
+  
+  margin-bottom: 10px;
+  background-color: #f6f1d1;
+  max-width: 100%;
+  justify-content:  space-between;
 }
 
 #title-header, #contact-title-header {
-    display: flex;
-    flex-direction: row;
-    font-family: "Caveat", cursive;
-    font-size: 54px;
+  display: flex;
+  flex-direction: row;
+  font-family: "Caveat", cursive;
+  font-size: 54px;
 }
 
 
 #option-dropdown {
-    background-color: #f6f1d1;
-    border: 1px solid #f6f1d1;
-    margin-top: 10px;
+  background-color: #f6f1d1;
+  border: 1px solid #f6f1d1;
+  margin-top: 10px;
 }
 
 #jumbotron {
-    
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    
+  
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  
 }
 
 #dropdown-ul {
-  border: 1px solid white;  
-  background: none;
+border: 1px solid white;  
+background: none;
 }
 
 .dropdown-divider {
-    border-bottom: 1px solid black
+  border-bottom: 1px solid black
 }
 
 #info-svg{
-  overflow: hidden;
+overflow: hidden;
 }
 #info-svg:hover{
- fill:rgb(175, 175, 175);
-  text-decoration: none;
+fill:rgb(175, 175, 175);
+text-decoration: none;
 }
 
 #search-input {
-    max-width: 800px;
-    height: auto;
+  max-width: 800px;
+  height: auto;
 }
 
 #user-input {
-    text-align: center;
-    font-family: "Caveat", cursive;
-    font-size: 24px;
+  text-align: center;
+  font-family: "Caveat", cursive;
+  font-size: 24px;
 }
 
 #search-button {
-    margin-left: 15px;
+  margin-left: 15px;
 }
 
 #jumbo-logo {
-    
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+  
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 #logo {
-    height: 75px;
+  height: 75px;
 }
 
 #home-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 150px;
-  border: 1px solid black;
-  padding-top: 100px;
-  padding-bottom: 100px;
-  max-height: 750px;
-  background-color: #cfd7c7;
-  border-radius: 15px;
-  box-shadow: 10px 0px 15px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+margin-top: 150px;
+border: 1px solid black;
+padding-top: 100px;
+padding-bottom: 100px;
+max-height: 750px;
+background-color: #cfd7c7;
+border-radius: 15px;
+box-shadow: 10px 0px 15px;
 }
 
 .button-container {
-    display: flex;
-    flex-direction: row;
-    align-content: center;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
 }
 
 .btn {
-    background-color: rgba(160, 222, 255, 0.521);
-    border: 1px solid rgb(160, 193, 211);
-    font-family: "Caveat", cursive;
-    font-size: 24px;
-    color: black;
+  background-color: rgba(160, 222, 255, 0.521);
+  border: 1px solid rgb(160, 193, 211);
+  font-family: "Caveat", cursive;
+  font-size: 24px;
+  color: black;
+}
+
+#svg-container{
+background-color: transparent;
+text-decoration: none;
+}
+.email-icon, .github , .linkedin{
+color:black
+}
+
+.email-icon:hover{
+fill:rgb(175, 175, 175);
+text-decoration: none;
+}
+
+.github svg:hover {
+fill:rgb(175, 175, 175);
+text-decoration: none;
+}
+
+.linkedin svg:hover {
+fill: rgb(175, 175, 175);
 }
 
 #options-btn {
-    margin:auto;
-    margin-top: 10px;
-    border: 1px solid #f6f1d1;
-    
+  margin:auto;
+  margin-top: 10px;
+  border: 1px solid #f6f1d1;
+  
 }
 
 .btn:hover {
-    background-color: #40798c;
-  color: white;
+  background-color: #40798c;
+color: white;
 }
 
 .login-p {
-    font-size: 28px;
-    font-family: "Caveat", cursive;
+  font-size: 28px;
+  font-family: "Caveat", cursive;
 }
 
 #login-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 150px;
-    border: 1px solid black;
-    padding-top: 100px;
-  padding-bottom: 100px;
-  max-height: 750px;
-  background-color: #cfd7c7;
-  border-radius: 15px;
-  box-shadow: 10px 0px 15px;
-}
-
-.login-label {
-  font-family: "Caveat", cursive;
-  font-size: 28px;
-}
-
-#login-title {
-    font-family: "Caveat", cursive;
-    font-size: 42px;
-}
-
-#login-form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-}
-
-#login-btn {
-  margin-top: 15px;
-}
-
-#signup-container {
-    display: flex;
-    flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 150px;
   border: 1px solid black;
   padding-top: 100px;
-  padding-bottom: 100px;
-  max-height: 750px;
-  background-color: #cfd7c7;
-  border-radius: 15px;
-  box-shadow: 10px 0px 15px;
+padding-bottom: 100px;
+max-height: 750px;
+background-color: #cfd7c7;
+border-radius: 15px;
+box-shadow: 10px 0px 15px;
+}
+
+.login-label {
+font-family: "Caveat", cursive;
+font-size: 28px;
+}
+
+#login-title {
+  font-family: "Caveat", cursive;
+  font-size: 42px;
+}
+
+#login-form {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+#login-btn {
+margin-top: 15px;
+}
+
+#signup-container {
+  display: flex;
+  flex-direction: column;
+justify-content: center;
+align-items: center;
+margin-top: 150px;
+border: 1px solid black;
+padding-top: 100px;
+padding-bottom: 100px;
+max-height: 750px;
+background-color: #cfd7c7;
+border-radius: 15px;
+box-shadow: 10px 0px 15px;
 }
 
 #signup-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .form-group {
-  font-family: "Caveat", cursive;
-  font-size: 28px;
-  margin-bottom: 15px;
+font-family: "Caveat", cursive;
+font-size: 28px;
+margin-bottom: 15px;
 }
 
 #signup-title {
-    font-family: "Caveat", cursive;
-    font-size: 42px;
+  font-family: "Caveat", cursive;
+  font-size: 42px;
 }
 
 .post-script {
-    font-family: "Caveat", cursive;
-  font-size: 32px;
+  font-family: "Caveat", cursive;
+font-size: 32px;
 }
 
 .surprise {
-    background-color: #40798c;
-}
-.recipe-box {
-  outline: 2px solid black;
-  border-radius: 10px;
-  box-shadow: 2px 2px 8px 4px rgba(187, 223, 255, 0.548)
+  background-color: #40798c;
 }
 #contact-group{
-  display:flex;
-  justify-content: center;
-  margin-top: 50px;
-  align-content: center;
-  /* background-color: aliceblue; */
-  box-shadow: 2px 2px 8px 4px rgba(187, 223, 255, 0.548);
-  border-radius: 3px;
+display:flex;
+justify-content: center;
+margin-top: 50px;
+align-content: center;
+/* background-color: aliceblue; */
+box-shadow: 2px 2px 8px 4px rgba(187, 223, 255, 0.548);
+border-radius: 3px;
 }
-
 #form{
-  display:flex;
-  justify-content: center;
-  margin-top: 50px;
-  align-content: center;
-  flex-direction: column;
-  width: 50%;
-  max-width:400px;
+display:flex;
+justify-content: center;
+margin-top: 50px;
+align-content: center;
+flex-direction: column;
+width: 50%;
+max-width:400px;
 }
 #form-div{
-  display:flex;
-  justify-content: center;
-  margin-top: 50px;
-  align-content: center;
+display:flex;
+justify-content: center;
+margin-top: 50px;
+align-content: center;
 
 }
 
 @media screen and (max-width: 337px) {
-  .login-p {
-      font-size: 16px;
-  }
-  .btn {
-      font-size: 16px;
-    }
-    .login-label {
+.login-p {
+    font-size: 16px;
+}
+.btn {
     font-size: 16px;
   }
-  .form-group {
-    font-size: 16px;
-  }
-  .post-script {
-    font-size: 24px;
-  }
+  .login-label {
+  font-size: 16px;
+}
+.form-group {
+  font-size: 16px;
+}
+.post-script {
+  font-size: 24px;
+}
 }
