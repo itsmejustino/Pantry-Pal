@@ -271,6 +271,60 @@ surpriseBtn.addEventListener("click", async () => {
   }
 });
 
+const searchWithLastIngredient = async (input) => {
+  document.getElementById("recipe-card").innerHTML = "";
+  const search_api_url = `/api/apiroutes/recipe/${input}`;
+  const searchResponse = await fetch(search_api_url);
+  const json = await searchResponse.json();
+  //card 1
+  for (let i = 0; i < 5; i++) {
+    let card = document.createElement("div");
+    let recipeName = document.createElement("h1");
+    let recipeImageDiv = document.createElement("div");
+    let recipeImage = document.createElement("img");
+    let recipeType = document.createElement("p");
+    let recipeIngredients = document.createElement("p");
+    let recipeLink = document.createElement("a");
+    let recipeBtn = document.createElement("button");
+
+    let cardClass = "text-center recipe-box";
+    let cardStyle = "width: 300px";
+    let imageClass =
+      "d-flex justify-content-center img-fluid rounded mx-auto d-block";
+    let buttonClass = "recipe-btn btn btn-info";
+
+    card.id = "recipeCard";
+    card.setAttribute("class", cardClass);
+    card.setAttribute("style", cardStyle);
+    recipeImage.setAttribute("class", imageClass);
+    recipeType.setAttribute("class", "text-center");
+    recipeIngredients.setAttribute("class", "flex-wrap");
+    recipeIngredients.setAttribute("class", "text-center");
+    recipeBtn.setAttribute("type", "button");
+    recipeBtn.setAttribute("class", buttonClass);
+    recipeLink.setAttribute("target", "_blank");
+
+    console.log(card);
+    console.log(recipeCardSection);
+
+    card.appendChild(recipeName);
+    card.append(recipeImageDiv);
+    recipeImageDiv.appendChild(recipeImage);
+    recipeImageDiv.appendChild(recipeLink);
+    recipeLink.appendChild(recipeBtn);
+    card.appendChild(recipeType);
+    card.appendChild(recipeIngredients);
+    recipeCardSection.append(card);
+
+    recipeName.textContent = json.hits[i].recipe.label;
+    recipeIngredients.textContent = json.hits[i].recipe.ingredientLines;
+    recipeImage.src = json.hits[i].recipe.image;
+    recipeType.textContent = json.hits[i].recipe.mealType;
+    recipeLink.href = json.hits[i].recipe.url;
+    recipeBtn.textContent = "More Recipe Info Here!";
+  }
+};
+
 const modalError = () => {
   var myDiv = document.createElement("div");
 
