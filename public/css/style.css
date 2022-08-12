@@ -194,6 +194,11 @@
 .surprise {
     background-color: #40798c;
 }
+.recipe-box {
+  outline: 2px solid black;
+  border-radius: 10px;
+  box-shadow: 2px 2px 8px 4px rgba(187, 223, 255, 0.548)
+}
 #contact-group{
   display:flex;
   justify-content: center;
@@ -203,6 +208,7 @@
   box-shadow: 2px 2px 8px 4px rgba(187, 223, 255, 0.548);
   border-radius: 3px;
 }
+
 #form{
   display:flex;
   justify-content: center;
