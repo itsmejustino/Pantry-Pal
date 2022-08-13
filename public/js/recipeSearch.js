@@ -101,6 +101,7 @@ button.addEventListener("click", async () => {
       let recipeLink = document.createElement("a");
       let recipeBtn = document.createElement("button");
 
+      recipeName.id = "recipeTitle";
       let cardClass = "text-center recipe-box";
       let cardStyle = "width: 300px";
       let imageClass =
@@ -111,6 +112,7 @@ button.addEventListener("click", async () => {
       card.setAttribute("style", cardStyle);
       recipeImage.setAttribute("class", imageClass);
       recipeType.setAttribute("class", "text-center");
+      recipeIngredients.id = "recipeIngredients";
       recipeIngredients.setAttribute("class", "flex-wrap");
       recipeIngredients.setAttribute("class", "text-center");
       recipeBtn.setAttribute("type", "button");
@@ -157,6 +159,8 @@ button.addEventListener("click", async () => {
       let recipeLink = document.createElement("a");
       let recipeBtn = document.createElement("button");
 
+      recipeName.id = "recipeTitle";
+
       let cardClass = "text-center recipe-box";
       let cardStyle = "width: 300px";
       let imageClass =
@@ -168,6 +172,8 @@ button.addEventListener("click", async () => {
       card.setAttribute("style", cardStyle);
       recipeImage.setAttribute("class", imageClass);
       recipeType.setAttribute("class", "text-center");
+      recipeIngredients.id = "recipeIngredients";
+
       recipeIngredients.setAttribute("class", "flex-wrap");
       recipeIngredients.setAttribute("class", "text-center");
       recipeBtn.setAttribute("type", "button");
@@ -238,12 +244,15 @@ surpriseBtn.addEventListener("click", async () => {
     let imageClass =
       "d-flex justify-content-center img-fluid rounded mx-auto d-block";
     let buttonClass = "recipe-btn btn btn-info";
+    recipeName.id = "recipeTitle";
 
     card.id = "recipeCard";
     card.setAttribute("class", cardClass);
     card.setAttribute("style", cardStyle);
     recipeImage.setAttribute("class", imageClass);
     recipeType.setAttribute("class", "text-center");
+    recipeIngredients.id = "recipeIngredients";
+
     recipeIngredients.setAttribute("class", "flex-wrap");
     recipeIngredients.setAttribute("class", "text-center");
     recipeBtn.setAttribute("type", "button");
