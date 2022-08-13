@@ -1,7 +1,7 @@
-# **Group Five - Pantry Pal**
+<p align= "center"><img src="logo_1.jpg"></p>
 
 - [GitHub Repository](https://github.com/itsmejustino/Pantry-Pal)
-- [GitHub Live Link]()
+- [GitHub Live Link](https://pantry-pal1.herokuapp.com/)
 <!-- to be added -->
 ## *Summary* 
 Every day, many people struggle with choosing a recipe to cook their meals. We have developed a robust interface that helps users quickly view meals that utilize several ingredients within their pantries. When you select the ingredients you already have in your pantry, our program will suggest recipes that contain them, helping immensely in the cooking process.
