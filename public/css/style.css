@@ -1,5 +1,11 @@
 
 
+label{
+  display: inline-block;
+  width: 140px;
+  text-align: right;
+}
+
 #navbar, #contact-navbar {
   display: flex;
   flex-direction: row;
@@ -41,6 +47,8 @@ background: none;
   border-bottom: 1px solid black
 }
 
+
+
 #info-svg{
 overflow: hidden;
 }
@@ -70,35 +78,6 @@ text-decoration: none;
   flex-direction: row;
   justify-content: center;
 }
-
-
-
-.recipe-box {
-border: 1px solid black;
-border-radius: 15px;
-box-shadow: 5px 0px 10px black
-}
-
-.recipe-box:hover {
-  box-shadow: 10px 0px 15px black;
-}
-
-#recipeTitle {
-  
-  padding-bottom: 5px;
-  font-family: "Caveat", cursive;
-  background-color: #f6f1d1;
-  border-top-right-radius: 15px;
-  border-top-left-radius: 15px;
-  padding-right: 5px;
-  border-bottom: 1px solid black
-}
-
-#recipeIngredients {
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
 
 #logo {
   height: 75px;
