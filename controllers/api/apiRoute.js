@@ -16,7 +16,7 @@ router.get("/recipe/:userSearch", async (req, res) => {
   try {
     console.log(req.params)
     const search = req.params.userSearch;
-    const url = `https://edamam-recipe-search.p.rapidapi.com/search?q=${search}&to=5`;
+    const url = `https://edamam-recipe-search.p.rapidapi.com/api/recipes/v2?type=public&co2EmissionsClass=A%2B&field%5B0%5D=uri&beta=true&random=true&dishType%5B0%5D=?q=${search}&to=5`;
     const fetch_response = await fetch(url, options);
     const json = await fetch_response.json();
     res.status(200).json(json);
